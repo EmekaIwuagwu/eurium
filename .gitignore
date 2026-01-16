@@ -1,0 +1,18 @@
+# Solidity
+solidity/node_modules/
+solidity/artifacts/
+solidity/cache/
+solidity/typechain-types/
+solidity/.env
+solidity/coverage/
+solidity/coverage.json
+
+# Aptos (general Move ignores)
+aptos/build/
+aptos/.env
+
+# General
+.vscode/
+.idea/
+*.log
+.DS_Store

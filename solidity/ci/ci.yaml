@@ -1,0 +1,23 @@
+name: Eurium CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    - run: npm install --legacy-peer-deps
+    - run: npx hardhat compile
+    - run: npx hardhat test
+    - name: Gas Report
+      run: REPORT_GAS=true npx hardhat test
