@@ -72,6 +72,23 @@ npx hardhat run scripts/deploy.ts --network sepolia
 npx hardhat run scripts/deploy.ts --network polygonAmoy
 ```
 
+## 🌐 Live Deployments
+
+### Sepolia Testnet (Ethereum)
+
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| **Eurium (EUI)** | `0xcEeee392B3666327cca7e0dF7BbF1387719795e5` | [View on Etherscan](https://sepolia.etherscan.io/address/0xcEeee392B3666327cca7e0dF7BbF1387719795e5) |
+| **ReserveManager** | `0x64C0d2C5d88a42db716Ee3860bECE2400b485a87` | [View on Etherscan](https://sepolia.etherscan.io/address/0x64C0d2C5d88a42db716Ee3860bECE2400b485a87) |
+| **Treasury** | `0x2661c2A4841975166CEC9bAdAEE3F9C71Df41Dab` | [View on Etherscan](https://sepolia.etherscan.io/address/0x2661c2A4841975166CEC9bAdAEE3F9C71Df41Dab) |
+
+**Admin/Deployer**: `0x28e514Ce1a0554B83f6d5EEEE11B07D0e294D9F9`
+
+**Network Details**:
+- Chain ID: 11155111
+- Network: Sepolia (Ethereum Testnet)
+- Deployment Date: January 16, 2026
+
 ## 🛡️ Security Architecture
 
 - **Pause Mechanism**: In case of emergency, the `PAUSER_ROLE` can freeze all token transfers.
