@@ -1,47 +1,83 @@
-# Eurium (EUI) - Euro-pegged Stablecoin
+# Eurium (EUI) Stablecoin - EVM Implementation
 
-Institutional-grade, audited, and compliant Euro-pegged stablecoin.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Stability: Stable](https://img.shields.io/badge/Stability-Stable-green.svg)](#)
 
-## Features
-- **ERC-20 & EIP-2612**: Full standard compliance with permit support for gasless approvals.
-- **UUPS Upgradeable**: Secure upgrade path via the Universal Upgradeable Proxy Standard.
-- **RBAC**: Multi-role access control (Admin, Minter, Pauser, Upgrader, Auditor).
-- **Institutional Redemption**: On-chain redemption requests with multi-step finalization for KYC/AML compliance.
-- **Reserve Proofs**: Hooks for on-chain Merkle root attestations of reserves.
-- **Safety**: Circuit breakers, pause functionality, and reentrancy protection.
+Eurium is an institutional-grade, Euro-pegged stablecoin built for the EVM ecosystem. It features multi-role governance, upgradeable infrastructure, and a dual-step redemption process designed for regulatory compliance.
 
-## Project Structure
-- `contracts/`: Solidity smart contracts.
-- `scripts/`: Deployment and operational scripts.
-- `test/`: TypeScript unit and integration tests.
-- `security/`: Threat models and security analysis.
-- `ci/`: GitHub Actions pipelines.
+## 🚀 Core Features
 
-## Installation
+- **Euro Pegged**: Designed to maintain a 1:1 value ratio with the Euro.
+- **UUPS Upgradeable**: Built on the Universal Upgradeable Proxy Standard (Proxy-Implementation pattern) for secure logic updates.
+- **Advanced RBAC**: Granular permissioning with Admin, Minter, Pauser, Upgrader, and Auditor roles.
+- **Compliant Redemption**: Two-step redemption process (Request -> Finalize) to allow for off-chain KYC/AML verification.
+- **Proof of Reserves**: Dedicated hooks for on-chain Merkle root attestations of collateral.
+- **Gasless Transactions**: Supports EIP-2612 (Permit) for gasless approvals.
+
+## 📁 Repository Structure
+
+```text
+solidity/
+├── contracts/          # Core smart contracts
+│   ├── Eurium.sol      # Main EUI token (ERC20 + RBAC + UUPS)
+│   ├── ReserveManager.sol # Orchestrates minting and custodian management
+│   └── Treasury.sol    # Secure fund management and fee collection
+├── scripts/            # Deployment and operational scripts
+├── test/               # Comprehensive test suite (8+ passing tests)
+├── security/           # Legal and security documentation
+└── hardhat.config.ts   # Multi-network configuration (Sepolia, Polygon, etc.)
+```
+
+## 🛠️ Setup & Installation
+
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
+
+### Installation
 ```bash
 npm install
 ```
 
-## Compilation
-```bash
-npx hardhat compile
-```
+### Environment Configuration
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+2. Fill in your `PRIVATE_KEY` and RPC URLs in `.env`.
 
-## Testing
+## 🧪 Testing
+
+Run the full test suite to ensure contract integrity:
 ```bash
 npx hardhat test
 ```
+Current tests cover:
+- Deployment & role assignment
+- Minting & Burning (Restricted)
+- Pause/Unpause mechanics
+- Redemption lifecycle (Request -> Finalization)
 
-## Deployment
+## 🚀 Deployment
+
+The deployment script handles the proxy initialization and grants standard roles to the `ReserveManager` and `Treasury`.
+
+**To Sepolia (Standard Testnet):**
 ```bash
-npx hardhat run scripts/deploy.ts --network <network_name>
+npx hardhat run scripts/deploy.ts --network sepolia
 ```
 
-## Security Design
-- **Minting**: Strictly restricted to `MINTER_ROLE`. In production, this should be held by `ReserveManager`.
-- **Pausing**: `PAUSER_ROLE` can freeze all transfers in case of emergency.
-- **Upgrades**: Only `UPGRADER_ROLE` can upgrade implementation.
-- **Auditing**: `AUDITOR_ROLE` can update reserve proofs.
+**To Polygon Amoy (Polygon Testnet):**
+```bash
+npx hardhat run scripts/deploy.ts --network polygonAmoy
+```
 
-## License
-MIT
+## 🛡️ Security Architecture
+
+- **Pause Mechanism**: In case of emergency, the `PAUSER_ROLE` can freeze all token transfers.
+- **Role Isolation**: Minting is restricted to the `ReserveManager` to ensure institutional control.
+- **Circuit Breakers**: Upgrades are handled via `UPGRADER_ROLE` and should be managed by a multi-sig wallet in production.
+- **Reentrancy Protection**: All financial methods are protected by OpenZeppelin's `ReentrancyGuard`.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
