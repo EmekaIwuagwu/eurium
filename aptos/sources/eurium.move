@@ -49,7 +49,7 @@ module eurium_addr::eurium {
         
         // Create the metadata object
         let constructor_ref = &object::create_named_object(admin, b"Eurium");
-        primary_fungible_asset::create_primary_store_enabled_fungible_asset(
+        primary_fungible_store::create_primary_store_enabled_fungible_asset(
             constructor_ref,
             option::none(),
             string::utf8(b"Eurium"),

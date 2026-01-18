@@ -59,6 +59,10 @@ aptos move test
 - **ReserveManager**: [`0xD4Dd128dbdC7721Ce30f8452a67Ed46Db4dB1f8B`](https://sepolia.etherscan.io/address/0xD4Dd128dbdC7721Ce30f8452a67Ed46Db4dB1f8B)
 - **Treasury**: [`0xA414f54BcE940ca1aa4A6A42B93C0c3A94B5D7c1`](https://sepolia.etherscan.io/address/0xA414f54BcE940ca1aa4A6A42B93C0c3A94B5D7c1)
 
+### Aptos Testnet (v1.0.0)
+- **Module ID**: [`0x696403f92b301f0a19abac3e8e94081022e624696bfbf3228fdc3b1bd24ec88c::eurium`](https://explorer.aptoslabs.com/account/0x696403f92b301f0a19abac3e8e94081022e624696bfbf3228fdc3b1bd24ec88c?network=testnet)
+- **Standard**: Aptos Fungible Asset (AIP-21)
+
 **Status**: ✅ All tests passing | ✅ Security audit completed | ✅ Production ready
 
 ## 📖 Documentation

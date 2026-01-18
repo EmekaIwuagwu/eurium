@@ -9,4 +9,4 @@ rev = "mainnet"
 subdir = "aptos-move/framework/aptos-framework"
 
 [addresses]
-eurium_addr = "_"
+eurium_addr = "0x696403f92b301f0a19abac3e8e94081022e624696bfbf3228fdc3b1bd24ec88c"
