@@ -41,6 +41,11 @@ aptos move test
 - **ReserveManager**: [`0x64C0d2C5d88a42db716Ee3860bECE2400b485a87`](https://sepolia.etherscan.io/address/0x64C0d2C5d88a42db716Ee3860bECE2400b485a87)
 - **Treasury**: [`0x2661c2A4841975166CEC9bAdAEE3F9C71Df41Dab`](https://sepolia.etherscan.io/address/0x2661c2A4841975166CEC9bAdAEE3F9C71Df41Dab)
 
+### Polygon Amoy Testnet
+- **Eurium (EUI)**: [`0x79fc40161D49B88Ae8658D3E16fb085aC7208220`](https://amoy.polygonscan.com/address/0x79fc40161D49B88Ae8658D3E16fb085aC7208220)
+- **ReserveManager**: [`0xdDC7a84B617E6a08934e7c93B677a30DC8890fff`](https://amoy.polygonscan.com/address/0xdDC7a84B617E6a08934e7c93B677a30DC8890fff)
+- **Treasury**: [`0xe0572C001B320dBd214C5ddB592C018FA5cedA4F`](https://amoy.polygonscan.com/address/0xe0572C001B320dBd214C5ddB592C018FA5cedA4F)
+
 ## 📖 Documentation
 
 - [Solidity Documentation](./solidity/README.md)
